@@ -29,7 +29,7 @@ function update(){
     }
 }
 
-button.addEventListener("click", function(){
+button.addEventListener("click", function(event){
     event.preventDefault();
     var l = input.value;
     var li = document.createElement("li");
@@ -41,7 +41,7 @@ button.addEventListener("click", function(){
     localStorage.setItem("data", JSON.stringify(state));
 });
 
-del.addEventListener("click", function(){
+del.addEventListener("click", function(event){
     event.preventDefault();
     localStorage.clear();
     list.innerHTML = "";
