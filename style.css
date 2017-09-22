@@ -5,21 +5,22 @@ html {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    
     text-align: center;
     font-family: Futura,"Trebuchet MS",Arial,sans-serif
 }
 
 .icon {
-    margin: 20px auto;
+    margin: 40px auto 20px;
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    padding: 10px;
+    padding: 20px;
     background-color: rgba(0, 0, 0, 0.15);
-    background-image: url("img/cake.svg");
+    background-image: url("img/apple.svg");
     background-repeat: no-repeat;
     background-position: center center;
+    transition: 1s; 
 }
 
 *, *: before, *: after {box-sizing: inherit; }
@@ -35,7 +36,7 @@ svg {
 
 .wrapper {
     padding: 20px;
-    max-width: 350px;
+    max-width: 450px;
     background: rgba(255,255,255,0.95);
     box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
 }
@@ -50,6 +51,7 @@ h2 {
     margin: 0;
     padding: 0;
     text-align: left;
+    text-transform: capitalize;
     list-style: none;
 }
 
@@ -84,7 +86,31 @@ h2 {
 }
 
 .add-items input {
+    font-size: 18px;
     padding: 10px;
     outline: 0;
     border: 1px solid rgba(0,0,0,0.1);
 }
+
+select {
+    font-size: 18px;
+    text-transform: capitalize;
+    color: brown;
+    font-weight: 400;
+    width: 160px;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.1);
+}
+
+option {    
+    font-size: 18px;
+}
+
+
+
+
+
+
+

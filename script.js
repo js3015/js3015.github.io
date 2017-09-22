@@ -1,7 +1,9 @@
-var button = document.getElementById("add");
+var add = document.getElementById("add");
 var del = document.getElementById("del");
-var input = document.querySelector('input[type="text"]');
+var select = document.querySelector("select");
+var icon = document.querySelector(".icon");
 var list = document.querySelector(".plates");
+var l = "apple";
 var state = {
     items: []
 };
@@ -12,11 +14,11 @@ if(data) {
 }
 
 window.onload = function() {
-    var loaded = sessionStorage.getItem('loaded');
+    var loaded = sessionStorage.getItem("loaded");
     if(loaded) {
         update();
     } else {
-        sessionStorage.setItem('loaded', true);
+        sessionStorage.setItem("loaded", true);
     }
 }
 
@@ -29,21 +31,31 @@ function update(){
     }
 }
 
-button.addEventListener("click", function(event){
-    event.preventDefault();
-    var l = input.value;
-    var li = document.createElement("li");
-    li.innerText = l;
-    list.appendChild(li);
-    input.value = "";
-
-    state.items.push(l);
-    localStorage.setItem("data", JSON.stringify(state));
+select.addEventListener("change", function(e) {
+    l = this.value;
+    changeLogo();
 });
 
-del.addEventListener("click", function(event){
+function changeLogo() {
+    icon.style.backgroundImage = 'url("img/' + l + '.svg")'
+}
+
+function addItem(event) {
+    event.preventDefault();
+    var li = document.createElement("li");
+    li.textContent = l;
+    list.appendChild(li);
+    
+    state.items.push(l);
+    localStorage.setItem("data", JSON.stringify(state));
+}
+
+function delItem(event){
     event.preventDefault();
     localStorage.clear();
     list.innerHTML = "";
     state.items = [];
-});
+}
+
+add.addEventListener("click", addItem);
+del.addEventListener("click", delItem);
